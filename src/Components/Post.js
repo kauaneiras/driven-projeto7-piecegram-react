@@ -25,7 +25,7 @@ export default function Post({source, profile, feed, likes, liked, mainLiked, ma
             
             </div>
             <div class="postFeed" style={{width: '614px', backgroundColor: 'white', cursor: 'pointer', overflow: 'hidden'}}>
-                {mediaType === 'image' ? (<img src={feed} style={{cursor: 'pointer', margin:'auto', width:'614px', height:'614px', display: 'flex', alignItems:'center', justifyContent:'center'}} onClick={() => setIsliked(true)} />) : 
+                {mediaType === 'image' ? (<img src={feed} style={{cursor: 'pointer', margin:'auto', height:'614px', display: 'flex', alignItems:'center', justifyContent:'center'}} onClick={() => setIsliked(true)} />) : 
                 (<video onClick={likePost} autoPlay muted loop controls>
                     <source src={feed} type="video/mp4"></source>
                 </video>

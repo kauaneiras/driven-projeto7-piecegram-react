@@ -20,6 +20,7 @@ time, mark, audio, video {
     font: inherit;
     font-family: 'Roboto', sans-serif;
     vertical-align: baseline;
+    background-color: #E5E5E5;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -28,6 +29,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    background-color: #E5E5E5;
+}
+.root, root{
+    background-color: #E5E5E5;
 }
 ol, ul {
     list-style: none;

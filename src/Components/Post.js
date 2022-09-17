@@ -8,8 +8,12 @@ export default function Post({source, profile, feed, likes, liked, mainLiked, ma
         setIsliked(!isLiked);
     }
 
+    const likesquantity = isLiked ? (likes + 1) : likes;
+    const wholiked = isLiked ? 'você' : mainLiked; 
+    const profilewholiked = isLiked ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqrCh-hXm21Gw2BW0o_3MiZzjIbuVVgwZzA&usqp=CAU' : mainLikedSource; 
+
     return (
-        <div class="post" style={{display: 'flex', flexDirection: 'column', maxWidth:'614px', maxHeight: '749px', borderRadius:'3px', backgroundColor: 'white', marginBottom:'80px'}}>
+        <div class="post" style={{border: '2px solid #DBDBDB', display: 'flex', flexDirection: 'column', maxWidth:'614px', borderRadius:'3px', backgroundColor: 'white', marginBottom:'30px'}}>
             <div class="postHeader" style={{display: 'flex',  alignItems: 'center', justifyContent: 'space-between', padding: '16px'}}>
                 <div class="headerProfile" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     <img src={source} style={{width:'32px', height:'32px', borderRadius:'50%'}}/>
@@ -20,27 +24,32 @@ export default function Post({source, profile, feed, likes, liked, mainLiked, ma
                 </div>
             
             </div>
-            <div class="postFeed" style={{width: '612px', backgroundColor: 'white', cursor: 'pointer', overflow: 'hidden'}}>
-                {mediaType === 'image' ? (<img src={feed} style={{cursor: 'pointer', height:'612px', display: 'flex', alignItems:'center', justifyContent:'center'}} onClick={() => setIsliked(true)} />) : 
+            <div class="postFeed" style={{width: '614px', backgroundColor: 'white', cursor: 'pointer', overflow: 'hidden'}}>
+                {mediaType === 'image' ? (<img src={feed} style={{cursor: 'pointer', margin:'auto', height:'614px' , display: 'flex', alignItems:'center', justifyContent:'center'}} onClick={() => setIsliked(true)} />) : 
                 (<video onClick={likePost} autoPlay muted loop controls>
                     <source src={feed} type="video/mp4"></source>
                 </video>
                 )}
             </div>
-            <div class="postFooter" style={{height:'40px', backgroundColor:'white', display: 'flex', flexDirection: 'column' }}>
+            <div class="postFooter" style={{ backgroundColor:'white', display: 'flex', flexDirection: 'column' }}>
                 <div class="footerIcons" style={{marginLeft: '16px', marginRight: '16px', marginTop: '12px', display: 'flex', flexDirection:'row', justifyContent:'space-between', alignItems: 'center',}}>
                     <div style={{display: 'flex', flexDirection: 'row', }}>
-                        <ion-icon style={{height: '20px', color: 'black'}} name="heart-outline"></ion-icon>
-                        <ion-icon style={{height: '20px', color: 'black'}} name="chatbubble-outline"></ion-icon>
-                        <ion-icon style={{height: '20px', color: 'black'}} name="paper-plane-outline"></ion-icon>
+
+
+                        {isLiked ? (<ion-icon name="heart" style={{color: '#B10201', height: '20px', visibility: 'visible', marginRight:'15px'}} onClick={likePost}></ion-icon>) : 
+                        (<ion-icon name="heart-outline" style={{height: '20px', color: 'black', marginRight:'15px'}} onClick={likePost}></ion-icon>)}
+
+                        {/* <ion-icon style={{height: '20px', color: 'black', marginRight:'15px'}} name="heart-outline"></ion-icon> */}
+                        <ion-icon style={{height: '20px', color: 'black', marginRight:'15px'}} name="chatbubble-outline"></ion-icon>
+                        <ion-icon style={{height: '20px', color: 'black', marginRight:'15px'}} name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
                         <ion-icon style={{height: '20px', color: 'black'}} name="bookmark-outline"></ion-icon>
                     </div>
                 </div>
                 <div class="footerLikes" style={{height: '50px',backgroundColor:'white', borderRadius: '5px',display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
-                    <img style={{marginLeft:'16px', backgroundColor:'white', height:'20px', width:'20px', borderRadius: '50%'}} src={mainLikedSource}/>
-                    <p style={{backgroundColor:'white', fontFamily: 'Roboto', marginLeft: '5px'}}>Curtido por <strong>{mainLiked}</strong> e <strong>outras {likes} pessoas</strong></p>
+                    <img style={{marginLeft:'16px', backgroundColor:'white', height:'20px', width:'20px', borderRadius: '50%'}} src={profilewholiked}/>
+                    <p style={{backgroundColor:'white', fontFamily: 'Roboto', marginLeft: '5px'}}>Curtido por <strong>{wholiked}</strong> e <strong>outras {likesquantity} pessoas</strong></p>
                 </div>
             </div>
         </div>

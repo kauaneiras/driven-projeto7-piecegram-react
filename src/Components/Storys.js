@@ -14,7 +14,7 @@ function Story(props) {
 
   export default function Storys() {
     return (
-      <div class="storys" style={{backgroundColor: '#FFFFFF', marginBottom:'30px', marginTop: '90px',maxWidth:'580px', display: 'flex', flexDirection: 'row',alignItems: 'center',height: '118px', borderRadius: '5px', border: '2px solid #DBDBDB', padding: '0 18px', overflow: 'hidden', position: 'relative',}}>
+      <div class="storys" style={{backgroundColor: '#FFFFFF', marginBottom:'30px', marginTop: '90px',maxWidth:'577px', display: 'flex', flexDirection: 'row',alignItems: 'center',height: '118px', borderRadius: '5px', border: '2px solid #DBDBDB', padding: '0 18px', overflow: 'hidden', position: 'relative',}}>
         {ProfileImages.map((story) => (<Story sourceImage={story.source} profileName={story.profile}/>))}
         <div class="arrow" style={{position: 'absolute', right: '10px', top: '45px', height: '32px', width: '32px', color: '#FFF', fontSize: '28px', cursor: 'pointer',}}>
           <ion-icon style={{backgroundColor: 'rgba(128, 128, 128, 0.3)', borderRadius: '50%'}} name="chevron-forward-circle"></ion-icon>

@@ -33,14 +33,37 @@ function Sugestion(props) {
 
 
 
+//pegar uma constante dentro de uma função e passar como props
+
+
+
 export default function Sidebar() {
+
+  const [username, setUsername] = React.useState("Usuário Desconectado");
+  const [name, setName] = React.useState("Usuário Desconectado");
+  const [userphoto, setUserphoto] = React.useState("https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258193-stock-illustration-anonymous-business-man-icon.jpg");
+  
+
+  function insertUserData(){
+    const usernamedate = prompt("Digite seu nome de usuario");
+    const namedate = prompt("Digite seu nome");
+    const userphotodate = prompt("Insira o link da sua foto de perfil");
+    usernamedate !== "" ? setUsername(usernamedate) : setUsername("Usuário Desconectado");
+    namedate !== "" ? setName(usernamedate) : setName("Usuário Desconectado");
+    userphotodate !== "" ? setUserphoto(userphotodate) : setUserphoto("https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258193-stock-illustration-anonymous-business-man-icon.jpg");
+  }
+
+
   return (
     <SidebarVisibility class="sidebar" style={{ backgroundColor: '#E5E5E5', width:'294px', height: '377px', borderRadius:'3px', marginTop:'88px', marginLeft:'30px'}}>
       <div class="user" style={{display: 'flex', height:'96px', alignItems: 'center', justifyContent: 'flex-start'}}>
-        <img style={{cursor: 'pointer', borderRadius:'50%', height:'56px', width: '56px'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqrCh-hXm21Gw2BW0o_3MiZzjIbuVVgwZzA&usqp=CAU" />
+        <img style={{cursor: 'pointer', borderRadius:'50%', height:'56px', width: '56px'}} src={userphoto} />
         <div class="userprofilename" style={{marginLeft: '16px'}}>
-          <div style={{color: '#262626', fontWeight: '600', fontSize: '14px', fontFamily: 'Roboto' , cursor: 'pointer'}}>shanksruivo</div>
-          <div style={{color: '#8E8E8E', fontWeight: '300', fontSize: '14px', fontFamily: 'Roboto'}}>Shanks O Ruivo</div>
+          <div style={{color: '#262626', fontWeight: '600', fontSize: '14px', fontFamily: 'Roboto' , cursor: 'pointer'}}>{username}</div>
+          <div class="editname" style={{display:'flex', flexDiretion:'row', alignItens: 'center', justifyContent: 'flex-start'}}>
+          <div style={{color: '#8E8E8E', fontWeight: '300', fontSize: '14px', fontFamily: 'Roboto'}}>{name}</div>
+          <ion-icon style = {{marginLeft:'5px'}} name="create-outline" onClick={insertUserData}></ion-icon>
+          </div>
         </div>
       </div>
 

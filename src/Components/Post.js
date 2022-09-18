@@ -10,7 +10,7 @@ export default function Post({source, profile, feed, likes, liked, mainLiked, ma
 
     const likesquantity = isLiked ? (likes + 1) : likes;
     const wholiked = isLiked ? 'você' : mainLiked; 
-    const profilewholiked = isLiked ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqrCh-hXm21Gw2BW0o_3MiZzjIbuVVgwZzA&usqp=CAU' : mainLikedSource; 
+    const profilewholiked = isLiked ? 'https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258193-stock-illustration-anonymous-business-man-icon.jpg' : mainLikedSource; 
 
     return (
         <div class="post" style={{border: '2px solid #DBDBDB', display: 'flex', flexDirection: 'column', maxWidth:'614px', borderRadius:'3px', backgroundColor: 'white', marginBottom:'30px'}}>
